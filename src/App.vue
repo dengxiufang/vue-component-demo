@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-      <child v-bind:message="parentMsg"></child>
+      <child v-on:listenToChildEvent="showMsgFromChild" v-bind:message="parentMsg"></child>
   </div>
 </template>
 
@@ -15,6 +15,11 @@ export default {
   },
   components: {
       child
+  },
+  methods: {
+    showMsgFromChild (data) {
+        console.log(data);
+    }
   }
 }
 </script>
